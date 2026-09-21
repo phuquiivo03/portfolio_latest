@@ -1156,6 +1156,33 @@
     <script>
       const projects = [
         {
+          id: "drawly",
+          title: "Lucky Slot",
+          org: "Personal Project",
+          when: "2026",
+          role: "Fullstack Developer",
+          short:
+            "A social giveaway platform where creators create events, share invite links, let users claim slots, and randomly select a winner.",
+          tags: ["Next.js", "TypeScript", "Supabase", "Zustand", "GSAP"],
+          stack: [
+            [
+              "Frontend",
+              "Next.js, TypeScript, Zustand, Zod, GSAP, React Joyride",
+            ],
+            [
+              "Backend services",
+              "Supabase Auth, PostgreSQL, Storage, Realtime",
+            ],
+          ],
+          work: [
+            "Built the complete flow: create event → invite → pick slots → lock event → draw winner.",
+            "Implemented Facebook OAuth and a demo account flow using Supabase Auth.",
+            "Built event and slot management with per-user limits and real-time updates.",
+            "Implemented a server-side SHA-256 based random draw with verifiable winner results.",
+            "Built interactive reel animations and onboarding with GSAP and React Joyride.",
+          ],
+        },
+        {
           id: "wallet",
           title: "Mini Wallet System",
           org: "Personal project",

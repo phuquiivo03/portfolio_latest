@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -29,8 +29,7 @@
         --shadow: 0 18px 40px -28px rgba(13, 27, 46, 0.55);
         --on-signal: #ffffff;
         --grid: rgba(13, 27, 46, 0.055);
-        --display:
-          "Bricolage Grotesque", "IBM Plex Sans", system-ui, sans-serif;
+        --display: "Bricolage Grotesque", "IBM Plex Sans", system-ui, sans-serif;
         --body: "IBM Plex Sans", system-ui, -apple-system, Segoe UI, sans-serif;
       }
       @media (prefers-color-scheme: dark) {
@@ -78,8 +77,7 @@
         font-size: 16px;
         line-height: 1.6;
         -webkit-font-smoothing: antialiased;
-        background-image:
-          linear-gradient(var(--grid) 1px, transparent 1px),
+        background-image: linear-gradient(var(--grid) 1px, transparent 1px),
           linear-gradient(90deg, var(--grid) 1px, transparent 1px);
         background-size: 34px 34px;
       }
@@ -258,9 +256,7 @@
         color: var(--ink-soft);
         font-size: 15px;
         padding: 5px 0;
-        transition:
-          color 0.25s ease,
-          transform 0.25s ease;
+        transition: color 0.25s ease, transform 0.25s ease;
       }
       nav a .bar {
         display: block;
@@ -268,9 +264,7 @@
         height: 1.5px;
         background: currentColor;
         opacity: 0.5;
-        transition:
-          width 0.3s cubic-bezier(0.3, 1, 0.4, 1),
-          opacity 0.3s;
+        transition: width 0.3s cubic-bezier(0.3, 1, 0.4, 1), opacity 0.3s;
       }
       nav a:hover,
       nav a.active {
@@ -301,9 +295,7 @@
         border: 1px solid var(--line);
         border-radius: 10px;
         padding: 8px 12px;
-        transition:
-          border-color 0.25s ease,
-          transform 0.25s ease,
+        transition: border-color 0.25s ease, transform 0.25s ease,
           color 0.25s ease;
       }
       .chip-link:hover {
@@ -380,10 +372,8 @@
         border-radius: 16px;
         padding: 22px;
         overflow: hidden;
-        transition:
-          transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1),
-          border-color 0.35s ease,
-          box-shadow 0.45s ease;
+        transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1),
+          border-color 0.35s ease, box-shadow 0.45s ease;
       }
       .card::after {
         content: "";
@@ -540,10 +530,7 @@
       }
       .skill .tag {
         background: var(--surface);
-        transition:
-          border-color 0.3s ease,
-          color 0.3s ease,
-          transform 0.3s ease;
+        transition: border-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
       }
       .skill .tag:hover {
         border-color: var(--signal);
@@ -609,8 +596,7 @@
       .rv {
         opacity: 0;
         transform: translateY(18px);
-        transition:
-          opacity 0.75s cubic-bezier(0.2, 0.8, 0.3, 1),
+        transition: opacity 0.75s cubic-bezier(0.2, 0.8, 0.3, 1),
           transform 0.75s cubic-bezier(0.2, 0.8, 0.3, 1);
       }
       .rv.in {
@@ -631,9 +617,7 @@
         -webkit-backdrop-filter: blur(6px);
         opacity: 0;
         visibility: hidden;
-        transition:
-          opacity 0.35s ease,
-          visibility 0.35s;
+        transition: opacity 0.35s ease, visibility 0.35s;
       }
       @media (min-width: 700px) {
         .scrim {
@@ -657,8 +641,7 @@
         padding: 28px 24px 32px;
         transform: translateY(40px) scale(0.98);
         opacity: 0;
-        transition:
-          transform 0.45s cubic-bezier(0.2, 0.9, 0.25, 1),
+        transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.25, 1),
           opacity 0.35s ease;
       }
       @media (min-width: 700px) {
@@ -685,9 +668,7 @@
         color: var(--ink);
         font-size: 18px;
         line-height: 1;
-        transition:
-          border-color 0.25s,
-          transform 0.25s;
+        transition: border-color 0.25s, transform 0.25s;
       }
       .close:hover {
         border-color: var(--signal);
@@ -725,8 +706,7 @@
         height: 100%;
         object-fit: cover;
         display: block;
-        transition:
-          transform 0.7s cubic-bezier(0.2, 0.8, 0.3, 1),
+        transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.3, 1),
           filter 0.5s ease;
       }
       .shot:hover img,
@@ -770,10 +750,8 @@
         padding: 9px 14px;
         transform: translateY(10px);
         opacity: 0;
-        transition:
-          transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1),
-          opacity 0.4s ease,
-          background 0.25s;
+        transition: transform 0.45s cubic-bezier(0.2, 0.9, 0.3, 1),
+          opacity 0.4s ease, background 0.25s;
       }
       .shot .mask a:hover {
         background: #fff;
@@ -904,9 +882,7 @@
         border-radius: 10px;
         padding: 10px 16px;
         font-weight: 500;
-        transition:
-          transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1),
-          filter 0.3s;
+        transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.3, 1), filter 0.3s;
       }
       .repo:hover {
         transform: translateY(-2px);
@@ -1289,6 +1265,43 @@
     <script>
       const projects = [
         {
+          id: "deducto",
+          title: "Deducto",
+          org: "Personal Project",
+          shot: "/deducto.png",
+          video: "/deducto-demo.mp4",
+          site: "https://deducto-gamma.vercel.app/",
+          when: "2026",
+          role: "Fullstack Developer",
+          short:
+            "An interactive mystery deduction game where players solve murder cases by linking clues, with AI Generative support for custom case creation.",
+          tags: [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "Generative AI",
+            "Zustand",
+          ],
+          stack: [
+            [
+              "Frontend",
+              "Next.js, TypeScript, React, Tailwind CSS, Zustand, React Flow",
+            ],
+            [
+              "Backend & AI",
+              "Node.js, AWS/Bedrock AI, Supabase Auth & Database",
+            ],
+            ["Deployment", "Vercel"],
+          ],
+          work: [
+            "Designed and built core mystery deduction gameplay allowing users to connect clues and make logical inferences to uncover suspects.",
+            "Integrated Generative AI to automatically generate custom detective cases, character backgrounds, and clue relations.",
+            "Implemented interactive UI components and flow node connections for smooth clue-linking mechanics.",
+            "Built user authentication and database management for saving progress and user-generated cases.",
+          ],
+          repo: "https://github.com/phuquiivo03/Deducto",
+        },
+        {
           id: "drawly",
           title: "Lucky Slot",
           org: "Personal Project",
@@ -1408,20 +1421,24 @@
       const esc = (s) =>
         String(s).replace(
           /[&<>"]/g,
-          (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c],
+          (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c])
         );
 
       document.getElementById("cards").innerHTML = projects
         .map(
           (p, i) => `
-  <button class="card rv" data-id="${p.id}" style="transition-delay:${i * 70}ms">
+  <button class="card rv" data-id="${p.id}" style="transition-delay:${
+            i * 70
+          }ms">
     <h3>${esc(p.title)}</h3>
     <p class="org">${esc(p.role)} · ${esc(p.org)}</p>
     <p class="when">${esc(p.when)}</p>
     <p>${esc(p.short)}</p>
-    <div class="stack">${p.tags.map((t) => `<span class="tag">${esc(t)}</span>`).join("")}</div>
+    <div class="stack">${p.tags
+      .map((t) => `<span class="tag">${esc(t)}</span>`)
+      .join("")}</div>
     <span class="open">Read the details <span class="arrow">→</span></span>
-  </button>`,
+  </button>`
         )
         .join("");
 
@@ -1453,7 +1470,10 @@
         const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
     <rect width="640" height="360" fill="#D8E0EA"/>
     <g stroke="#B6C4D4" stroke-width="1">
-      ${Array.from({ length: 18 }, (_, i) => `<path d="M${i * 36} 0V360"/><path d="M0 ${i * 36}H640"/>`).join("")}
+      ${Array.from(
+        { length: 18 },
+        (_, i) => `<path d="M${i * 36} 0V360"/><path d="M0 ${i * 36}H640"/>`
+      ).join("")}
     </g>
     <rect x="40" y="40" width="560" height="280" rx="14" fill="#EEF2F7" stroke="#B6C4D4"/>
     <circle cx="66" cy="66" r="5" fill="#C3CEDB"/><circle cx="84" cy="66" r="5" fill="#C3CEDB"/><circle cx="102" cy="66" r="5" fill="#C3CEDB"/>
@@ -1463,7 +1483,9 @@
     <rect x="66" y="196" width="150" height="96" rx="10" fill="#DCE4ED"/>
     <rect x="230" y="196" width="150" height="96" rx="10" fill="#DCE4ED"/>
     <rect x="394" y="196" width="150" height="96" rx="10" fill="#DCE4ED"/>
-    <text x="320" y="176" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#7C8CA0">${esc(p.title)}</text>
+    <text x="320" y="176" text-anchor="middle" font-family="sans-serif" font-size="15" fill="#7C8CA0">${esc(
+      p.title
+    )}</text>
   </svg>`;
         return "data:image/svg+xml;utf8," + encodeURIComponent(svg);
       }
@@ -1471,17 +1493,23 @@
       function shotMarkup(p) {
         const src = p.shot || placeholderShot(p);
         const demo = p.video
-          ? `<a href="${esc(p.video)}" target="_blank" rel="noopener">${ICON_PLAY}Demo video</a>`
+          ? `<a href="${esc(
+              p.video
+            )}" target="_blank" rel="noopener">${ICON_PLAY}Demo video</a>`
           : p.shot
-            ? ""
-            : `<span>${ICON_PLAY}Demo video</span>`;
+          ? ""
+          : `<span>${ICON_PLAY}Demo video</span>`;
         const site = p.site
-          ? `<a href="${esc(p.site)}" target="_blank" rel="noopener">${ICON_LINK}Visit site</a>`
+          ? `<a href="${esc(
+              p.site
+            )}" target="_blank" rel="noopener">${ICON_LINK}Visit site</a>`
           : p.shot
-            ? ""
-            : `<span>${ICON_LINK}Visit site</span>`;
+          ? ""
+          : `<span>${ICON_LINK}Visit site</span>`;
         if (!demo && !site)
-          return `<div class="shot"><img src="${esc(src)}" alt="${esc(p.title)} screenshot"></div>`;
+          return `<div class="shot"><img src="${esc(src)}" alt="${esc(
+            p.title
+          )} screenshot"></div>`;
         const hint = p.shot
           ? ""
           : '<p class="hint">Placeholder — add a screenshot and links to this project</p>';
@@ -1496,24 +1524,27 @@
         if (!p) return;
         lastFocus = document.activeElement;
         document.getElementById("m-title").textContent = p.title;
-        document.getElementById("m-meta").textContent =
-          `${p.role} · ${p.org} · ${p.when}`;
+        document.getElementById(
+          "m-meta"
+        ).textContent = `${p.role} · ${p.org} · ${p.when}`;
         document.getElementById("m-shot").innerHTML = shotMarkup(p);
         document.getElementById("m-desc").textContent = p.desc;
         document.getElementById("m-stack").innerHTML = p.stack
           .map(
             ([k, v]) =>
-              `<div class="m-row"><b>${esc(k)}</b><div>${esc(v)}</div></div>`,
+              `<div class="m-row"><b>${esc(k)}</b><div>${esc(v)}</div></div>`
           )
           .join("");
         document.getElementById("m-work").innerHTML = p.work
           .map(
             (w, i) =>
-              `<li style="animation-delay:${140 + i * 70}ms">${esc(w)}</li>`,
+              `<li style="animation-delay:${140 + i * 70}ms">${esc(w)}</li>`
           )
           .join("");
         document.getElementById("m-repo").innerHTML = p.repo
-          ? `<a class="repo" href="${esc(p.repo)}" target="_blank" rel="noopener">View the code on GitHub</a>`
+          ? `<a class="repo" href="${esc(
+              p.repo
+            )}" target="_blank" rel="noopener">View the code on GitHub</a>`
           : "";
         scrim.hidden = false;
         sheet.scrollTop = 0;
@@ -1551,7 +1582,7 @@
             }
           });
         },
-        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
       );
       document.querySelectorAll(".rv").forEach((el) => io.observe(el));
 
@@ -1564,13 +1595,13 @@
               links.forEach((a) =>
                 a.classList.toggle(
                   "active",
-                  a.getAttribute("href") === "#" + en.target.id,
-                ),
+                  a.getAttribute("href") === "#" + en.target.id
+                )
               );
             }
           });
         },
-        { rootMargin: "-45% 0px -50% 0px" },
+        { rootMargin: "-45% 0px -50% 0px" }
       );
       document
         .querySelectorAll("main section[id]")

@@ -13,21 +13,28 @@ export function ProjectShot({ project }: ProjectShotProps) {
   const hasVideoSlot = project.id in demoVideoUrlByProjectId;
 
   const demoControl =
-    hasVideoSlot && !videoUrl
+    hasVideoSlot && videoUrl
       ? (
-          <span>
+          <a href={videoUrl} target="_blank" rel="noopener noreferrer">
             <IconPlay />
             Demo video
-          </span>
+          </a>
         )
-      : !hasVideoSlot && !project.shot
+      : hasVideoSlot && !videoUrl
         ? (
             <span>
               <IconPlay />
               Demo video
             </span>
           )
-        : null;
+        : !hasVideoSlot && !project.shot
+          ? (
+              <span>
+                <IconPlay />
+                Demo video
+              </span>
+            )
+          : null;
 
   const siteControl = project.site
     ? (
@@ -59,8 +66,22 @@ export function ProjectShot({ project }: ProjectShotProps) {
     <img src={poster} alt={`${project.title} screenshot`} />
   );
 
-  if (videoUrl || (!demoControl && !siteControl)) {
+  const hasActions = Boolean(demoControl || siteControl);
+
+  if (!hasActions) {
     return <div className="shot">{media}</div>;
+  }
+
+  if (videoUrl) {
+    return (
+      <div className="shot-wrap">
+        <div className="shot">{media}</div>
+        <div className="shot-actions">
+          {demoControl}
+          {siteControl}
+        </div>
+      </div>
+    );
   }
 
   return (

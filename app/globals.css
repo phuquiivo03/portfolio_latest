@@ -923,6 +923,23 @@ button {
 }
 
 /* Screenshot / video */
+.shot-wrap {
+  margin-top: 4px;
+}
+
+.shot-wrap .shot {
+  margin-top: 0;
+}
+
+.shot-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
 .shot {
   position: relative;
   margin-top: 4px;
@@ -957,15 +974,19 @@ button {
   opacity: 0;
   transition: opacity 0.35s ease;
   padding: 16px;
+  pointer-events: none;
 }
 
 .shot:hover .mask,
 .shot:focus-within .mask {
   opacity: 1;
+  pointer-events: auto;
 }
 
 .shot .mask a,
-.shot .mask span {
+.shot .mask span,
+.shot-actions a,
+.shot-actions span {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -977,13 +998,15 @@ button {
   padding: 8px 12px;
 }
 
-.shot .mask span {
+.shot .mask span,
+.shot-actions span {
   background: rgba(57, 255, 122, 0.25);
   color: var(--text-heading);
   border: 1px dashed var(--accent-dim);
 }
 
-.shot .mask svg {
+.shot .mask svg,
+.shot-actions svg {
   width: 14px;
   height: 14px;
   stroke: currentColor;

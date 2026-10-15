@@ -5,8 +5,8 @@ export function placeholderShot(title: string): string {
     );
 
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
-    <rect width="640" height="360" fill="#D8E0EA"/>
-    <g stroke="#B6C4D4" stroke-width="1">
+    <rect width="640" height="360" fill="#050805"/>
+    <g stroke="#1f4d1f" stroke-width="1">
       ${Array.from(
         { length: 18 },
         (_, i) =>

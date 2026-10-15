@@ -47,7 +47,7 @@ export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
 
   return (
     <div
-      className={`scrim${open ? " on" : ""}`}
+      className={`modal-scrim${open ? " is-open" : ""}`}
       role="dialog"
       aria-modal="true"
       aria-labelledby="m-title"
@@ -56,47 +56,48 @@ export function ProjectModal({ project, open, onClose }: ProjectModalProps) {
         if (e.target === e.currentTarget) handleClose();
       }}
     >
-      <div className="sheet" ref={sheetRef}>
+      <div className="modal-sheet panel" ref={sheetRef}>
         <button
           type="button"
-          className="close"
+          className="modal-close"
           ref={closeRef}
           aria-label="Close project details"
           onClick={handleClose}
         >
-          ✕
+          [x]
         </button>
-        <h2 id="m-title">{project.title}</h2>
-        <p className="m-meta">
+        <p className="modal-prompt dim">$ cat {project.id}/README.md</p>
+        <h2 id="m-title" className="modal-title">{project.title}</h2>
+        <p className="modal-meta">
           {project.role} · {project.org} · {project.when}
         </p>
         <ProjectShot project={project} />
-        {project.desc ? <p className="m-desc">{project.desc}</p> : null}
-        <h4>Tech stack</h4>
-        <div className="m-grid">
+        <p className="modal-desc">{project.desc ?? project.short}</p>
+        <h3 className="modal-subhead">Tech stack</h3>
+        <div className="modal-kv">
           {project.stack.map(([k, v]) => (
-            <div key={k} className="m-row">
+            <div key={k} className="modal-row">
               <b>{k}</b>
               <div>{v}</div>
             </div>
           ))}
         </div>
-        <h4>What I did</h4>
-        <ul>
+        <h3 className="modal-subhead">What I did</h3>
+        <ul className="modal-list">
           {project.work.map((w, i) => (
             <li key={w} style={{ animationDelay: `${140 + i * 70}ms` }}>
-              {w}
+              <span className="bullet">[x]</span> {w}
             </li>
           ))}
         </ul>
         {project.repo ? (
           <a
-            className="repo"
+            className="modal-repo"
             href={project.repo}
             target="_blank"
             rel="noopener noreferrer"
           >
-            View the code on GitHub
+            View the code on GitHub →
           </a>
         ) : null}
       </div>

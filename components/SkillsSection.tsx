@@ -1,81 +1,32 @@
-const skillGroups = [
-  {
-    title: "Languages",
-    tags: [
-      "JavaScript",
-      "TypeScript",
-      "OOP",
-      "Data structures & algorithms",
-    ],
-  },
-  {
-    title: "Frontend",
-    tags: [
-      "React",
-      "Next.js",
-      "Zustand",
-      "Redux",
-      "TailwindCSS",
-      "Shadcn/UI",
-      "ESLint",
-      "Prettier",
-    ],
-  },
-  {
-    title: "Backend",
-    tags: [
-      "Node.js",
-      "Express.js",
-      "NestJS",
-      "FastAPI",
-      "Prisma",
-      "WebSocket",
-      "RabbitMQ",
-    ],
-  },
-  {
-    title: "Data",
-    tags: ["PostgreSQL", "MongoDB", "Redis", "Mongoose"],
-  },
-  {
-    title: "Infrastructure",
-    tags: [
-      "AWS",
-      "GCP",
-      "Kubernetes",
-      "Docker",
-      "CI/CD",
-      "Nginx",
-      "Linux",
-    ],
-  },
-  {
-    title: "Web3",
-    tags: ["Ethers.js", "Wallet connection", "NFT minting", "Supabase"],
-  },
-];
+import { skillBars } from "@/data/skills";
+import { SectionPrompt } from "./SectionPrompt";
 
 export function SkillsSection() {
   return (
-    <section id="skills">
-      <div className="s-head rv">
-        <h2>Skills</h2>
-        <span className="rule" />
-      </div>
-      <div className="skills">
-        {skillGroups.map((group) => (
-          <div key={group.title} className="skill rv">
-            <h3>{group.title}</h3>
-            <div className="stack">
-              {group.tags.map((tag) => (
-                <span key={tag} className="tag">
-                  {tag}
-                </span>
-              ))}
+    <section className="term-section" id="stack" aria-labelledby="stack-heading">
+      <SectionPrompt command="cat stack.txt | sort -r" />
+      <p className="section-label">&gt; proficiency</p>
+      <h2 className="section-heading" id="stack-heading">
+        The tools I reach for{" "}
+        <span className="dim">{"// self-assessed, honest"}</span>
+      </h2>
+      <div className="skill-grid">
+        {skillBars.map((skill) => (
+          <div key={skill.label} className="skill-row">
+            <span className="skill-label">{skill.label}</span>
+            <div className="skill-track-wrap">
+              <div className="skill-track">
+                <div
+                  className="skill-fill"
+                  style={{ width: `${skill.percent}%` }}
+                />
+              </div>
+              <span className="skill-pct">{skill.percent}%</span>
             </div>
           </div>
         ))}
       </div>
+      <hr className="term-rule" />
     </section>
   );
 }

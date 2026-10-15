@@ -45,15 +45,6 @@ export function ProjectShot({ project }: ProjectShotProps) {
         )
       : null;
 
-  const hint =
-    project.shot || (!demoControl && !siteControl)
-      ? null
-      : (
-          <p className="hint">
-            Placeholder — add a screenshot and links to this project
-          </p>
-        );
-
   const media = hasVideoSlot ? (
     <video
       className="shot-media"
@@ -79,7 +70,6 @@ export function ProjectShot({ project }: ProjectShotProps) {
         {demoControl}
         {siteControl}
       </div>
-      {hint}
     </div>
   );
 }

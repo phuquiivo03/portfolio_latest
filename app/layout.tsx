@@ -1,18 +1,18 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, IBM_Plex_Sans } from "next/font/google";
+import { IBM_Plex_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const bricolage = Bricolage_Grotesque({
+const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
-  weight: ["500", "700", "800"],
-  variable: "--font-display",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-mono-primary",
   display: "swap",
 });
 
-const ibmPlex = IBM_Plex_Sans({
+const ibmMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
-  variable: "--font-body",
+  variable: "--font-mono-secondary",
   display: "swap",
 });
 
@@ -31,10 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${bricolage.variable} ${ibmPlex.variable}`}
-    >
+    <html lang="en" className={`${jetbrains.variable} ${ibmMono.variable}`}>
       <body>{children}</body>
     </html>
   );

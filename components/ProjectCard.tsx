@@ -1,49 +1,66 @@
 "use client";
 
 import type { Project } from "@/data/projects";
-import { useCallback } from "react";
+import { amberTag, projectBadge, projectDirName } from "@/lib/projectDir";
 
 type ProjectCardProps = {
   project: Project;
-  index: number;
   onOpen: (id: string) => void;
 };
 
-export function ProjectCard({ project, index, onOpen }: ProjectCardProps) {
-  const onPointerMove = useCallback(
-    (e: React.PointerEvent<HTMLButtonElement>) => {
-      const c = e.currentTarget;
-      const r = c.getBoundingClientRect();
-      c.style.setProperty("--mx", `${e.clientX - r.left}px`);
-      c.style.setProperty("--my", `${e.clientY - r.top}px`);
-    },
-    [],
-  );
+export function ProjectCard({ project, onOpen }: ProjectCardProps) {
+  const badge = projectBadge(project);
+  const highlight = amberTag(project);
 
   return (
-    <button
-      type="button"
-      className="card rv"
-      style={{ transitionDelay: `${index * 70}ms` }}
-      onClick={() => onOpen(project.id)}
-      onPointerMove={onPointerMove}
-    >
-      <h3>{project.title}</h3>
-      <p className="org">
-        {project.role} · {project.org}
-      </p>
-      <p className="when">{project.when}</p>
-      <p>{project.short}</p>
-      <div className="stack">
-        {project.tags.map((t) => (
-          <span key={t} className="tag">
-            {t}
+    <article className="proj-card panel">
+      <button
+        type="button"
+        className="proj-card-main"
+        onClick={() => onOpen(project.id)}
+      >
+        <div className="proj-card-head">
+          <span className="proj-dir">{projectDirName(project)}</span>
+          <span className={`proj-badge badge-${badge.variant}`}>
+            {badge.label}
           </span>
-        ))}
+          <span className="proj-mode dim">-rwxr-xr-x</span>
+        </div>
+        <p className="proj-desc">{project.short}</p>
+        <div className="proj-tags">
+          {project.tags.map((t) => (
+            <span
+              key={t}
+              className={`tag-pill${t === highlight ? " tag-amber" : ""}`}
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+        <span className="proj-more dim">$ cat README — full breakdown</span>
+      </button>
+      <div className="proj-links">
+        {project.site ? (
+          <a
+            href={project.site}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            live demo →
+          </a>
+        ) : null}
+        {project.repo ? (
+          <a
+            href={project.repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            source →
+          </a>
+        ) : null}
       </div>
-      <span className="open">
-        Read the details <span className="arrow">→</span>
-      </span>
-    </button>
+    </article>
   );
 }

@@ -59,7 +59,7 @@ export function ProjectShot({ project }: ProjectShotProps) {
     <img src={poster} alt={`${project.title} screenshot`} />
   );
 
-  if (!demoControl && !siteControl) {
+  if (videoUrl || (!demoControl && !siteControl)) {
     return <div className="shot">{media}</div>;
   }
 

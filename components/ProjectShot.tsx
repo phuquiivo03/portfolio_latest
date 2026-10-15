@@ -1,5 +1,6 @@
 import { demoVideoUrlByProjectId } from "@/config/media";
 import type { Project } from "@/data/projects";
+import { youtubeEmbedUrl } from "@/lib/demoVideo";
 import { placeholderShot } from "@/lib/placeholderShot";
 import { IconLink, IconPlay } from "./icons";
 
@@ -52,15 +53,27 @@ export function ProjectShot({ project }: ProjectShotProps) {
         )
       : null;
 
+  const youtubeEmbed = videoUrl ? youtubeEmbedUrl(videoUrl) : null;
+
   const media = hasVideoSlot ? (
-    <video
-      className="shot-media"
-      poster={poster}
-      src={videoUrl || undefined}
-      controls={Boolean(videoUrl)}
-      playsInline
-      preload="none"
-    />
+    youtubeEmbed ? (
+      <iframe
+        className="shot-media"
+        src={youtubeEmbed}
+        title={`${project.title} demo video`}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      />
+    ) : (
+      <video
+        className="shot-media"
+        poster={poster}
+        src={videoUrl || undefined}
+        controls={Boolean(videoUrl)}
+        playsInline
+        preload="none"
+      />
+    )
   ) : (
     // eslint-disable-next-line @next/next/no-img-element
     <img src={poster} alt={`${project.title} screenshot`} />

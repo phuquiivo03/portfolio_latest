@@ -14,3 +14,7 @@ export const demoVideoUrlByProjectId: Record<string, string> = {
   drawly: DRAWLY_DEMO_VIDEO_URL,
   wallet: MINI_WALLET_DEMO_VIDEO_URL,
 };
+
+export const introUrlByProjectId: Record<string, string> = {
+  deducto: "https://www.youtube.com/watch?v=KjcJTcAT34A",
+};

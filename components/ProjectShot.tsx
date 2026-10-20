@@ -1,4 +1,4 @@
-import { demoVideoUrlByProjectId } from "@/config/media";
+import { demoVideoUrlByProjectId, introUrlByProjectId } from "@/config/media";
 import type { Project } from "@/data/projects";
 import { youtubeEmbedUrl } from "@/lib/demoVideo";
 import { placeholderShot } from "@/lib/placeholderShot";
@@ -12,54 +12,44 @@ export function ProjectShot({ project }: ProjectShotProps) {
   const poster = project.shot ?? placeholderShot(project.title);
   const videoUrl = demoVideoUrlByProjectId[project.id] ?? "";
   const hasVideoSlot = project.id in demoVideoUrlByProjectId;
-
+  const introUrl = introUrlByProjectId[project.id] ?? "";
+  const hasIntroSlot = introUrl !== "";
   const demoControl =
-    hasVideoSlot && videoUrl
-      ? (
-          <a href={videoUrl} target="_blank" rel="noopener noreferrer">
-            <IconPlay />
-            Demo video
-          </a>
-        )
-      : hasVideoSlot && !videoUrl
-        ? (
-            <span>
-              <IconPlay />
-              Demo video
-            </span>
-          )
-        : !hasVideoSlot && !project.shot
-          ? (
-              <span>
-                <IconPlay />
-                Demo video
-              </span>
-            )
-          : null;
+    hasVideoSlot && videoUrl ? (
+      <a href={videoUrl} target="_blank" rel="noopener noreferrer">
+        <IconPlay />
+        Demo video
+      </a>
+    ) : hasVideoSlot && !videoUrl ? (
+      <span>
+        <IconPlay />
+        Demo video
+      </span>
+    ) : !hasVideoSlot && !project.shot ? (
+      <span>
+        <IconPlay />
+        Demo video
+      </span>
+    ) : null;
 
-  const siteControl = project.site
-    ? (
-        <a href={project.site} target="_blank" rel="noopener noreferrer">
-          <IconLink />
-          Visit site
-        </a>
-      )
-    : !project.shot
-      ? (
-          <span>
-            <IconLink />
-            Visit site
-          </span>
-        )
-      : null;
+  const siteControl = project.site ? (
+    <a href={project.site} target="_blank" rel="noopener noreferrer">
+      <IconLink />
+      Visit site
+    </a>
+  ) : !project.shot ? (
+    <span>
+      <IconLink />
+      Visit site
+    </span>
+  ) : null;
 
-  const youtubeEmbed = videoUrl ? youtubeEmbedUrl(videoUrl) : null;
-
-  const media = hasVideoSlot ? (
-    youtubeEmbed ? (
+  const youtubeEmbedIntro = introUrl ? youtubeEmbedUrl(introUrl) : null;
+  const media = hasIntroSlot ? (
+    youtubeEmbedIntro ? (
       <iframe
         className="shot-media"
-        src={youtubeEmbed}
+        src={youtubeEmbedIntro}
         title={`${project.title} demo video`}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen

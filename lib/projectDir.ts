@@ -2,6 +2,7 @@ import type { Project } from "@/data/projects";
 
 export function projectDirName(project: Project): string {
   const map: Record<string, string> = {
+    devlife: "devlife",
     deducto: "deducto",
     drawly: "drawly",
     wallet: "mini-wallet",

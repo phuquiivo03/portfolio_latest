@@ -45,11 +45,12 @@ export function ProjectShot({ project }: ProjectShotProps) {
   ) : null;
 
   const youtubeEmbedIntro = introUrl ? youtubeEmbedUrl(introUrl) : null;
-  const media = hasIntroSlot ? (
-    youtubeEmbedIntro ? (
+  const youtubeEmbedDemo = videoUrl ? youtubeEmbedUrl(videoUrl) : null;
+  const inlineVideo = hasVideoSlot ? (
+    youtubeEmbedDemo ? (
       <iframe
         className="shot-media"
-        src={youtubeEmbedIntro}
+        src={youtubeEmbedDemo}
         title={`${project.title} demo video`}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
@@ -64,9 +65,25 @@ export function ProjectShot({ project }: ProjectShotProps) {
         preload="none"
       />
     )
+  ) : null;
+
+  const media = hasIntroSlot ? (
+    youtubeEmbedIntro ? (
+      <iframe
+        className="shot-media"
+        src={youtubeEmbedIntro}
+        title={`${project.title} demo video`}
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+      />
+    ) : (
+      inlineVideo
+    )
   ) : (
-    // eslint-disable-next-line @next/next/no-img-element
-    <img src={poster} alt={`${project.title} screenshot`} />
+    inlineVideo ?? (
+      // eslint-disable-next-line @next/next/no-img-element
+      <img src={poster} alt={`${project.title} screenshot`} />
+    )
   );
 
   const hasActions = Boolean(demoControl || siteControl);

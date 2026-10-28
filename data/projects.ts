@@ -16,6 +16,42 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    id: "devlife",
+    title: "DevLife",
+    org: "Personal Project",
+    shot: "/devlife-preview-junior.png",
+    site: "https://deflife.vercel.app",
+    when: "2026",
+    role: "Fullstack Developer",
+    short:
+      "a cozy 3D web life-sim where you decorate your room as you grow from student to junior to senior developer.",
+    desc:
+      "Cuộc sống từ sinh viên IT đến khi trở thành super senior",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "React Three Fiber",
+      "Zustand",
+      "Vercel",
+    ],
+    stack: [
+      [
+        "Frontend",
+        "Next.js, React, TypeScript, Three.js, React Three Fiber, Zustand",
+      ],
+      ["3D assets", "Blender, GLB"],
+      ["Deployment", "Vercel"],
+    ],
+    work: [
+      "Built three career-stage rooms (student boarding room, junior setup, senior city apartment) unlocked through an in-game store, with decor items that snap to shared placement slots.",
+      "Implemented day/night lighting across four time phases for each room.",
+      "Designed freelance and full-time remote jobs with a job board and monthly salary payouts.",
+      "Crafted clay pastel 3D art direction with SFX and BGM to support the cozy life-sim loop.",
+    ],
+    repo: "https://github.com/phuquiivo03/devlife",
+  },
+  {
     id: "deducto",
     title: "Deducto",
     org: "Personal Project",
